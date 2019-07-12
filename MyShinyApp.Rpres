@@ -1,0 +1,33 @@
+Developing Data Products Week 4 Assignment
+========================================================
+author: David Li
+date: 12/07/2019
+autosize: true
+
+Shiny App Description
+========================================================
+
+In the shiny app, i have chosen to use the USArrests dataset which contains statistics in arrests per 100,000 residents for assault, murder and rape in each of the 50 US states in 1973 along with the percent of population living in urban areas. 
+I wanted to know if there is any correlation between urbanisation and murder rates and decided to plot out the relationship between the two variables. A linear regression model is implemented and plotted on the graph.
+
+Summary of data
+========================================================
+The following shows the statistical summary of the USArrests dataset
+```{r}
+summary(USArrests)
+```
+
+Slide With Plot
+========================================================
+
+```{r, echo=FALSE}
+         plot(USArrests$UrbanPop, USArrests$Murder, xlab = "Urban Population (%)",
+ylab = "Murder Arrests (per 100,000 people)", bty = "n", pch = 16, xlim = c(0,100), ylim = c(0,20))
+                 abline(lm(Murder ~ UrbanPop, data = USArrests), col = "blue", lwd = 2)
+         legend(5, 15, "Model 1 Prediction", pch = 16, col = "blue", bty = "n")
+ 
+```
+Findings
+========================================================
+By using the slider provided in the shiny app, we can predict the expected murder rate with a given urban population percentage. 
+From the visualisation, we can deduce there is a weak positive correlation between the two variables. 
